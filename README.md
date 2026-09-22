@@ -1,53 +1,81 @@
 # Secure File Transfer Demo
 
-A Python client/server application that demonstrates file upload, download, and listing over a local TCP connection. This project showcases core networking concepts, file handling, and multithreaded server design in a simple, practical implementation.
+A Python client/server application that demonstrates file upload, download, and listing over a local TCP connection. Built as a clean, portfolio-friendly networking project to showcase socket programming, multithreaded server handling, and practical file transfer workflows.
 
-## Overview
+## Project Overview
 
-This project implements a lightweight file-sharing system where a server stores uploaded files locally and a client interacts with it through a socket connection. It is designed to be easy to run, easy to understand, and useful as a portfolio example for Python networking and backend application development.
+This project implements a lightweight file-sharing system with a server that stores uploaded files locally and a client that interacts with it over a network socket. It is designed to be easy to run, easy to understand, and a strong example of core Python networking concepts.
+
+## Why This Project
+
+This project is useful for demonstrating:
+
+- Python socket programming
+- Client/server architecture
+- Multithreaded request handling
+- File I/O and data transfer over TCP
+- Secure-by-default validation patterns for file names and paths
 
 ## Features
 
-- Upload files from a client to a server
-- Download files from the server to a client
-- List files currently available on the server
-- Store uploaded files in a dedicated local folder
-- Basic validation for invalid or unsafe filenames
-- Threaded request handling for concurrent client connections
+- Upload files from a client to a central server
+- Download files from the server to a local machine
+- List all currently available files on the server
+- Local file storage in a dedicated `server_files` directory
+- Basic validation for invalid or unsafe file names
+- Threaded request handling so multiple clients can be processed concurrently
+
+## Architecture
+
+The project follows a simple layered design:
+
+- `server.py` contains the TCP server and handles incoming requests
+- `client.py` contains the client logic and interactive command-line menu
+- `server_files/` is where uploaded files are stored locally
+
+## How It Works
+
+1. The server starts listening on a configured host and port.
+2. The client connects to the server using a socket.
+3. The client sends an operation type: `UPLOAD`, `DOWNLOAD`, or `LIST`.
+4. The server processes the request and returns the appropriate response.
+5. Files are transferred in chunks to avoid loading everything into memory at once.
 
 ## Tech Stack
 
 - Python 3
-- Socket programming
-- Threading
-- File I/O
-- Path validation
-
-## Project Structure
-
-- `server.py` — starts the TCP server and handles client requests
-- `client.py` — connects to the server and provides a command-line interface
-- `server_files/` — directory used to store uploaded files
-
-## How It Works
-
-1. The server starts listening on a host and port.
-2. The client connects to the server.
-3. The client sends one of these commands:
-   - `UPLOAD`
-   - `DOWNLOAD`
-   - `LIST`
-4. The server processes the request and responds with the appropriate output.
-5. Files are transferred in chunks to avoid loading entire files into memory.
+- `socket` module for networking
+- `threading` for multithreaded server requests
+- `pathlib` for local file path management
 
 ## Getting Started
 
 ### Prerequisites
 
 - Python 3.8+
-- A local environment to run both the server and client
+- Local machine or same-network environment for testing client/server communication
 
 ### Run the server
 
 ```bash
 python server.py
+```
+
+### Run the client
+
+```bash
+python client.py
+```
+
+## Example Workflow
+
+1. Start the server.
+2. Start the client.
+3. Choose option `1` to upload a file.
+4. Choose option `2` to download a file.
+5. Choose option `3` to list the available files.
+
+
+## License
+
+This project is intended for educational and portfolio use.
