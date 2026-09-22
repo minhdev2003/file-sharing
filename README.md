@@ -6,16 +6,6 @@ A Python client/server application that demonstrates file upload, download, and 
 
 This project implements a lightweight file-sharing system with a server that stores uploaded files locally and a client that interacts with it over a network socket. It is designed to be easy to run, easy to understand, and a strong example of core Python networking concepts.
 
-## Why This Project
-
-This project is useful for demonstrating:
-
-- Python socket programming
-- Client/server architecture
-- Multithreaded request handling
-- File I/O and data transfer over TCP
-- Secure-by-default validation patterns for file names and paths
-
 ## Features
 
 - Upload files from a client to a central server
